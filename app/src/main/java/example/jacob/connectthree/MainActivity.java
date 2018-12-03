@@ -90,7 +90,7 @@ public class MainActivity extends AppCompatActivity {
 
         img.setTranslationY(-3000);
         img.setImageResource(imgSrc);
-        img.animate().translationYBy(3000).setDuration(1000);
+        img.animate().translationYBy(3000).setDuration(500);
 
         if (this.game.currentPlayer == 1) {
             this.game.currentPlayer = 2;
@@ -110,12 +110,12 @@ public class MainActivity extends AppCompatActivity {
             TextView winnerText = findViewById(R.id.winnerMessage);
             Button winnerButton = findViewById(R.id.resetGameButton);
 
-            if (this.game.turnCount == 9) {
-                winnerText.setText("Tie game!");
-            } else if (this.winner == 1) {
+            if (this.winner == 1) {
                 winnerText.setText("Red has won!");
-            } else {
+            } else if (this.winner == 2){
                 winnerText.setText("Yellow has won!");
+            } else {
+                winnerText.setText("Tie game!");
             }
 
             winnerButton.setVisibility(View.VISIBLE);
